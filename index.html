@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lentera Buku - toko buku online: katalog, pemesanan, dan pelacakan pengiriman.">
+  <title>Masuk | Lentera Buku</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- CSS eksternal -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS internal: dekorasi khusus halaman login -->
+  <style>
+    .auth-aside::after { content: ""; position: absolute; right: -90px; top: -90px; width: 300px; height: 300px; border-radius: 50%; border: 40px solid rgba(242, 177, 52, .18); pointer-events: none; }
+    .auth-aside > * { position: relative; z-index: 1; }
+  </style>
+</head>
+<body data-page="login">
+  <div class="auth">
+    <aside class="auth-aside" aria-label="Tentang Lentera Buku">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>Lentera Buku</span></a>
+      <div>
+        <h1>Temukan buku berikutnya.</h1>
+        <p>Pesan buku favorit, pantau stok, dan lacak paket Anda dalam satu tempat.</p>
+        <div class="auth-shelf" aria-hidden="true">
+          <img src="img/buku1.png" alt=""><img src="img/buku5.png" alt=""><img src="img/buku3.png" alt=""><img src="img/buku10.png" alt="">
+        </div>
+      </div>
+      <p style="margin:0;font-size:.85rem">buku kita</p>
+    </aside>
+
+    <main class="auth-main">
+      <section class="auth-card" aria-labelledby="judulLogin">
+        <h2 id="judulLogin">Masuk ke akun Anda</h2>
+        <p class="muted">Gunakan email dan password yang terdaftar.</p>
+
+        <form id="formLogin" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com" autocomplete="username">
+            <span class="error-msg"></span>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" autocomplete="current-password">
+            <span class="error-msg"></span>
+          </div>
+          <label class="hint" style="display:flex;gap:.4rem;align-items:center;margin-bottom:1.2rem"><input type="checkbox" id="tampilPassword"> Tampilkan password</label>
+          <button type="submit" class="btn btn-block">Login</button>
+        </form>
+
+        <div class="auth-links">
+          <button type="button" class="link-btn" data-open-modal="modalLupa">Lupa Password</button>
+          <button type="button" class="link-btn" data-open-modal="modalDaftar">Daftar</button>
+        </div>
+
+
+  <!-- Modal: Daftar -->
+  <dialog id="modalDaftar" class="modal" aria-labelledby="judulDaftar">
+    <div class="modal-head">
+      <h2 id="judulDaftar">Daftar akun baru</h2>
+      <button type="button" class="modal-close" data-close-modal aria-label="Tutup">&times;</button>
+    </div>
+    <form id="formDaftar" novalidate>
+      <div class="modal-body">
+        <div class="field"><label for="regNama">Nama lengkap</label><input type="text" id="regNama" autocomplete="name"><span class="error-msg"></span></div>
+        <div class="field"><label for="regEmail">Email</label><input type="email" id="regEmail" autocomplete="email"><span class="error-msg"></span></div>
+        <div class="field"><label for="regPassword">Password</label><input type="password" id="regPassword" autocomplete="new-password"><span class="hint">Minimal 6 karakter.</span><span class="error-msg"></span></div>
+        <div class="field" style="margin-bottom:0"><label for="regPassword2">Ulangi password</label><input type="password" id="regPassword2" autocomplete="new-password"><span class="error-msg"></span></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" data-close-modal>Batal</button>
+        <button type="submit" class="btn">Buat akun</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal: Lupa Password -->
+  <dialog id="modalLupa" class="modal" aria-labelledby="judulLupa">
+    <div class="modal-head">
+      <h2 id="judulLupa">Lupa password</h2>
+      <button type="button" class="modal-close" data-close-modal aria-label="Tutup">&times;</button>
+    </div>
+    <form id="formLupa" novalidate>
+      <div class="modal-body">
+        <p class="muted">Masukkan email akun Anda. Kami akan mengirim tautan untuk membuat password baru.</p>
+        <div class="field" style="margin-bottom:0"><label for="lupaEmail">Email</label><input type="email" id="lupaEmail" autocomplete="email"><span class="error-msg"></span></div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline" data-close-modal>Batal</button>
+        <button type="submit" class="btn">Kirim tautan reset</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

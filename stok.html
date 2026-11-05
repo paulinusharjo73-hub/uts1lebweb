@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lentera Buku - toko buku online: katalog, pemesanan, dan pelacakan pengiriman.">
+  <title>Stok Buku | Lentera Buku</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- CSS eksternal -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="stok">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="dashboard.html"><img src="assets/logo.svg" alt="" width="34" height="34"><span>Lentera Buku</span></a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="dashboard.html">Beranda</a>
+        <a href="stok.html" aria-current="page">Stok</a>
+        <a href="checkout.html">Pemesanan</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="laporan.html">Laporan</a>
+        <a href="riwayat.html">Riwayat</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" id="btnCart" class="btn-cart" aria-label="Buka keranjang belanja"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span id="cartCount" class="badge" hidden>0</span></button>
+        <span id="userName" class="user-name"></span>
+        <button type="button" id="btnLogout" class="btn btn-ghost">Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <div>
+        <h1>Informasi stok &amp; katalog</h1>
+        <p id="ringkasanStok"></p>
+      </div>
+    </div>
+
+    <section class="panel add-form" aria-labelledby="judulTambah">
+      <h2 id="judulTambah">Tambah stok buku baru</h2>
+      <form id="formStok" novalidate>
+        <div class="grid-5">
+          <div class="field"><label for="sJudul">Judul</label><input type="text" id="sJudul" placeholder="Judul buku"><span class="error-msg"></span></div>
+          <div class="field"><label for="sPenulis">Penulis</label><input type="text" id="sPenulis" placeholder="Nama penulis"><span class="error-msg"></span></div>
+          <div class="field"><label for="sKategori">Kategori</label><input type="text" id="sKategori" list="daftarKategori" placeholder="Pilih / ketik"><datalist id="daftarKategori"><option value="Novel"><option value="Pengembangan Diri"><option value="Teknologi"><option value="Sains"><option value="Bisnis"></datalist><span class="error-msg"></span></div>
+          <div class="field"><label for="sHarga">Harga (Rp)</label><input type="number" id="sHarga" min="1000" step="500" placeholder="95000"><span class="error-msg"></span></div>
+          <div class="field"><label for="sStok">Stok</label><input type="number" id="sStok" min="0" placeholder="10"><span class="error-msg"></span></div>
+        </div>
+        <button type="submit" class="btn btn-amber">Tambah ke tabel</button>
+      </form>
+    </section>
+
+    <div class="toolbar">
+      <label class="sr-only" for="cariStok">Cari buku</label>
+      <input type="search" id="cariStok" class="input" placeholder="Cari judul, penulis, kategori…">
+      <button type="button" id="btnResetStok" class="btn btn-outline btn-sm">Kembalikan data awal</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="tabelStok">
+        <caption class="sr-only">Daftar stok buku</caption>
+        <thead>
+          <tr><th scope="col">No</th><th scope="col">Sampul</th><th scope="col">Judul</th><th scope="col">Penulis</th><th scope="col">Kategori</th><th scope="col" class="num">Harga</th><th scope="col">Stok</th><th scope="col">Status</th><th scope="col">Aksi</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <p style="margin:0">&copy; <span id="tahun">2026</span> Lentera Buku</p>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
